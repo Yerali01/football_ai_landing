@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Download, UserPlus, Radio, Trophy } from "lucide-react";
+import { Download, UserPlus, Radio, Trophy, Sparkles, Bot, Zap, Star } from "lucide-react";
 
 const steps = [
   {
@@ -31,10 +31,10 @@ const steps = [
 ];
 
 const stats = [
-  { label: "Faster Progress", value: "25%" },
-  { label: "Sessions Tracked", value: "10M+" },
-  { label: "User Satisfaction", value: "97%" },
-  { label: "AI Availability", value: "24/7" },
+  { label: "Personalized Plans", value: "100%", icon: Sparkles },
+  { label: "AI Coach Access", value: "24/7", icon: Bot },
+  { label: "Video Analysis", value: "< 1 min", icon: Zap },
+  { label: "Pro-Level Drills", value: "Expert", icon: Star },
 ];
 
 export default function HowItWorks() {
@@ -81,15 +81,44 @@ export default function HowItWorks() {
         </div>
 
         {/* Bottom Banner Stats */}
-        <div className="mt-24 glass rounded-[2.5rem] p-12 border border-white/5 relative overflow-hidden group">
-          <div className="absolute inset-0 bg-accent/5 translate-y-full group-hover:translate-y-0 transition-transform duration-700" />
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-12 relative z-10">
-            {stats.map((stat, i) => (
-              <div key={i} className="text-center">
-                <div className="text-4xl font-bold text-accent mb-2">{stat.value}</div>
-                <div className="text-sm text-muted-foreground font-medium">{stat.label}</div>
-              </div>
-            ))}
+        <div className="mt-32 relative">
+          <div className="absolute inset-0 -z-10 bg-accent/5 blur-[100px] rounded-full opacity-50" />
+          
+          <div className="text-center mb-12">
+             <div className="inline-block px-4 py-1.5 rounded-full bg-accent/5 border border-accent/10 text-accent/80 text-xs font-bold uppercase tracking-widest mb-4">
+               App Capabilities
+             </div>
+             <h4 className="text-3xl md:text-4xl font-bold text-white mb-2">Designed for Your Progress</h4>
+             <p className="text-muted-foreground text-lg">Powerful tools to help you reach your peak performance.</p>
+          </div>
+
+          <div className="glass rounded-[3.5rem] p-8 md:p-16 border border-white/20 relative overflow-hidden group shadow-[0_0_50px_-12px_rgba(var(--accent-rgb),0.3)] hover:shadow-accent/20 transition-all duration-500">
+            <div className="absolute inset-0 bg-gradient-to-br from-accent/10 via-transparent to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 relative z-10">
+              {stats.map((stat, i) => (
+                <motion.div 
+                  key={i} 
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.2 + i * 0.1 }}
+                  whileHover={{ scale: 1.05 }}
+                  className="text-center group/item cursor-default"
+                >
+                  <div className="mb-6 flex justify-center">
+                    <div className="w-16 h-16 rounded-[1.5rem] bg-accent/10 flex items-center justify-center group-hover/item:scale-110 group-hover/item:bg-accent/30 group-hover/item:rotate-3 transition-all duration-500 shadow-xl border border-white/5">
+                      <stat.icon className="w-8 h-8 text-accent group-hover/item:scale-110 transition-transform duration-500" />
+                    </div>
+                  </div>
+                  <div className="text-4xl md:text-5xl font-bold text-white mb-2 group-hover/item:text-accent transition-colors tracking-tight">
+                    {stat.value}
+                  </div>
+                  <div className="text-[10px] md:text-xs text-muted-foreground font-semibold uppercase tracking-wider mt-2">
+                    {stat.label}
+                  </div>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </div>

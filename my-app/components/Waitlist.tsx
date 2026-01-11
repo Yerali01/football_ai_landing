@@ -19,7 +19,9 @@ export default function Waitlist() {
         const snapshot = await getCountFromServer(coll);
         setCount(snapshot.data().count);
       } catch (error) {
-        console.error("Error fetching waitlist count:", error);
+        console.error("Firebase Fetch Error:", error);
+        // Fallback to 0 if fetch fails, so we don't show "..." forever
+        setCount(0);
       }
     };
     
@@ -100,9 +102,11 @@ export default function Waitlist() {
                 )}
               </button>
             </div>
-            <p className="text-[11px] text-zinc-500 mt-5 font-semibold tracking-wide">
-              Join {count !== null ? count.toLocaleString() : "..."} players waiting for early access. No spam, ever.
-            </p>
+            <div className="flex items-center justify-center gap-2 mt-6">
+              <p className="text-sm md:text-base text-zinc-400 font-medium">
+                Join <span className="text-white font-bold">{count !== null ? count.toLocaleString() : "..."}</span> players already on the waitlist
+              </p>
+            </div>
           </form>
         </motion.div>
       </div>

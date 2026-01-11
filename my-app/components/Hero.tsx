@@ -13,18 +13,6 @@ export default function Hero() {
       <div className="container mx-auto px-6">
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
           <div className="flex-1 text-center lg:text-left">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 text-accent text-sm font-medium mb-8"
-            >
-              {/* <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M13 2L3 14h8l-1 8 10-12h-8l1-8z" fill="currentColor"/>
-              </svg>
-              AI-Powered Football Analytics */}
-            </motion.div>
-
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -84,20 +72,40 @@ export default function Hero() {
           </div>
 
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ 
+              opacity: 1, 
+              y: [0, -15, 0],
+            }}
+            transition={{ 
+              opacity: { duration: 0.8 },
+              y: { 
+                duration: 4, 
+                repeat: Infinity, 
+                ease: "easeInOut" 
+              }
+            }}
             className="flex-1 relative lg:flex lg:justify-end"
           >
-            <div className="relative w-full max-w-[380px] lg:max-w-[420px]">
-               <div className="relative aspect-[9/19] rounded-[2.5rem] lg:rounded-[3rem] overflow-hidden">
-                  <Image
-                    src="/hero-phone-new.png"
-                    alt="Football AI App - Player Dashboard"
-                    fill
-                    className="object-contain"
-                    priority
-                  />
+            <div className="relative w-full max-w-[260px] lg:max-w-[300px] mx-auto lg:mr-0">
+               {/* Phone Frame Mockup */}
+               <div className="relative bg-[#0F172A] border-[#1E293B] border-[10px] rounded-[2.5rem] aspect-[9/19] w-full shadow-[0_50px_100px_-20px_rgba(0,0,0,0.5),0_0_50px_-10px_rgba(37,99,235,0.2)] overflow-hidden">
+                  {/* Speaker Grill */}
+                  <div className="w-[80px] h-[20px] bg-[#1E293B] top-0 left-1/2 -translate-x-1/2 absolute rounded-b-[1rem] z-20 flex items-center justify-center">
+                    <div className="w-8 h-0.5 bg-gray-700 rounded-full" />
+                  </div>
+                  
+                  <div className="relative w-full h-full bg-black">
+                    <Image
+                      src="/home_screen.jpg"
+                      alt="Football AI App - Home Dashboard"
+                      fill
+                      className="object-cover"
+                      priority
+                    />
+                    {/* Glass Shine */}
+                    <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent pointer-events-none" />
+                  </div>
                </div>
             </div>
           </motion.div>

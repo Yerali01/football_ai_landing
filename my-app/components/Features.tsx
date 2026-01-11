@@ -1,48 +1,48 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Brain, Target, TrendingUp, ShieldAlert, Zap, Users } from "lucide-react";
+import { Circle, Mic, Activity, WifiOff, Utensils, BarChart3 } from "lucide-react";
 
 const features = [
   {
     title: "Real-Time AI Coaching",
     description: "Your personal trainer in your pocket. Get instant audio and visual feedback on your form as you train, powered by advanced computer vision",
-    icon: Brain,
+    icon: Circle,
     color: "text-blue-500",
     bg: "bg-blue-500/10",
   },
   {
     title: "Smart Voice Assistant",
     description: "Have a question mid-workout? Just ask. Our voice-activated AI answers your football and training queries instantly, completely hands-free",
-    icon: Target,
+    icon: Mic,
     color: "text-cyan-500",
     bg: "bg-cyan-500/10",
   },
   {
     title: "Deep Technique Analysis",
     description: "Don't just practice; practice perfectly. We break down your movements frame-by-frame to identify mistakes and help you master professional technique.",
-    icon: TrendingUp,
+    icon: Activity,
     color: "text-green-500",
     bg: "bg-green-500/10",
   },
   {
     title: "Offline Mode",
     description: "No signal? No problem. Access your full training plans, drills, and workout history anywhere, anytime—even without an internet connection.",
-    icon: ShieldAlert,
+    icon: WifiOff,
     color: "text-orange-500",
     bg: "bg-orange-500/10",
   },
   {
     title: "Nutrition & Performance",
     description: "Fuel your game correctly. Track your meals and receive personalized nutrition recommendations tailored to your specific training goals.",
-    icon: Zap,
+    icon: Utensils,
     color: "text-purple-500",
     bg: "bg-purple-500/10",
   },
   {
     title: "Advanced Analytics",
     description: "Visualize your growth. Track your stats, consistency, and skill improvements over time with detailed performance charts",
-    icon: Users,
+    icon: BarChart3,
     color: "text-indigo-500",
     bg: "bg-indigo-500/10",
   },
